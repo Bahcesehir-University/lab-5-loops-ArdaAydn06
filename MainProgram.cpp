@@ -39,8 +39,11 @@ int main() {
     // TODO: Declare a string variable for the name
     // TODO: Prompt the user and read the name with cin
     // TODO: Print the greeting
-
-    cout << endl;
+    string name;
+    cout << "Enter your name: " ;
+    cin>> name;
+    cout << name << endl;
+    cout << "Hello, Arda! Welcome to the Loops lab" << endl;
 
     // Exercise 1.2
     // Ask the user for two integers and print their sum and product.
@@ -51,8 +54,12 @@ int main() {
     // TODO: Declare two int variables
     // TODO: Prompt and read both integers
     // TODO: Print the sum and product
-
-    cout << endl;
+    int a , b ;
+    cout << "Enter two integers" << endl;
+    cin>> a ;
+    cin>> b ;
+    cout << "Sum :" << (a + b) << endl;
+    cout << "Product :" << (a * b) << endl;
 
     // ========================================================================
     //  SECTION 2 — CORE CONCEPTS (10-15 minutes)
@@ -80,7 +87,11 @@ int main() {
 
     cout << "Even numbers (while): ";
     // TODO: Write a while loop that prints even numbers from 2 to 20
-
+    int i = 2;
+    while ( i <= 20) {
+        cout << i << " ";
+        i+= 2;
+    }
     cout << endl;
 
     // --- 2B: The FOR loop ---
@@ -100,7 +111,7 @@ int main() {
 
     cout << "Odd numbers (for): ";
     // TODO: Write a for loop that prints odd numbers from 1 to 15
-
+    
     cout << endl;
 
     // --- 2C: The DO-WHILE loop ---
@@ -146,7 +157,12 @@ int main() {
     // TODO: Ask user for a starting number
     // TODO: Use a loop to count down to 1, printing each number followed by "... "
     // TODO: After the loop, print "Liftoff!"
-
+    int start;
+    cout << "Enter a number ";
+    cin >> start ;
+    for ( int c = start ; c >=1 ; c--){
+        cout << c << "... ";
+    }
     cout << endl;
 
     // Exercise 3.2 — Sum Calculator
@@ -158,7 +174,18 @@ int main() {
     //   Enter number 2: 20
     //   Enter number 3: 5
     //   Total sum: 35
-
+    int count;
+    cout << "How many numbers? ";
+    cin >> count;
+    
+    int sum = 0;
+    for (int k = 1 ; k <= count; k++){
+        int val;
+        cout << "Enter number " << k << " : ";
+        cin >>val;
+        sum+=val;
+    }
+    cout << "Total sum : " << sum  << ":" << endl;
     cout << "-- Exercise 3.2: Sum Calculator --" << endl;
     // TODO: Ask how many numbers
     // TODO: Use a for loop to read each number and accumulate the sum
@@ -174,12 +201,17 @@ int main() {
     //   7 x 2 = 14
     //   ...
     //   7 x 10 = 70
-
+    
     cout << "-- Exercise 3.3: Multiplication Table --" << endl;
     // TODO: Ask for N
     // TODO: Use a for loop from 1 to 10
     // TODO: Print each line: N x i = N*i
-
+    int N ;
+    cout << "Enter a number: ";
+    cin >> N;
+    for (int m = 1 ; m <= 10; m++){
+        cout << N << " x " << m << " = " << (N * m) <<endl;
+    }
     cout << endl;
 
     // Exercise 3.4 — Factorial Calculator
@@ -194,7 +226,15 @@ int main() {
     // TODO: Use a loop to calculate the factorial
     //       Hint: start with result = 1, multiply by each number from 1 to N
     // TODO: Print the result
-
+    int fn ;
+    cout << "Enter a non-negative integer: ";
+    cin >> fn;
+    
+    long factorial = 1 ;
+    for (int f = 1; f <= fn ; f++){
+        factorial *= f;
+    }
+    cout << fn << "! = "<< factorial << endl;
     cout << endl;
 
     // Exercise 3.5 — Number Guessing (Sentinel Loop)
@@ -213,29 +253,23 @@ int main() {
     //       - Increment the counter
     //       - Print "Too high!" or "Too low!" if wrong
     // TODO: Print "Correct! You guessed it in X tries."
-
+    int guess ;
+    int tries =0;
+    do {
+        cout << "Guess the secret number: ";
+        cin >> guess;
+        tries ++;
+        if (guess > secret){
+        cout << "Too High" << endl;
+        }else if (guess < secret) { 
+            cout << "Too small";
+    }    
+    }while(guess != secret);
+    
+    cout << "Correct! you guessed it in" << "tries" <<endl;
     cout << endl;
 
-    // Exercise 3.6 — Pattern Printer (Nested Loops)
-    // Ask the user for a number of rows N.
-    // Print a right triangle of stars:
-    //
-    // Example for N = 5:
-    // *
-    // **
-    // ***
-    // ****
-    // *****
-    //
-    // Hint: You need a loop inside a loop (nested for loops).
-
-    cout << "-- Exercise 3.6: Star Pattern --" << endl;
-    // TODO: Ask for the number of rows
-    // TODO: Outer loop for each row (1 to N)
-    //       TODO: Inner loop to print the correct number of '*' characters
-    //       TODO: Print a newline after each row
-
-    cout << endl;
+   
 
     // ========================================================================
     //  SECTION 4 — CHALLENGE (10 minutes)
